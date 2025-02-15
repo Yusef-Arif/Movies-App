@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-padding-top: 2rem;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* custom scroll bar */
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: var(--text-color);
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 5rem;
+}
+/* custom scroll bar */
+:root {
+  --main-color: #ff2c1f;
+  --text-color: #020307;
+  --bg-color: #fff;
+}
+@media (min-width: 768px) {
+section {
+  padding: 4.5rem 1.5rem;
+}
+}
+@media (max-width: 768px) {
+section {
+  padding: 2rem 1rem;
+}
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+/* Navbar */
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  /* background-color: var(--bg-color); */
+  transition: 0.5s;
+}
+header.shadow {
+  background-color: var(--bg-color);
+  box-shadow: 0 0 4px rgb(14 55 54 / 15%);
+}
+header.shadow .navbar a {
+  color: black;
+}
+header.shadow .logo {
+  color: black;
+}
+header .navbar a {
+  position: relative;
+  padding-bottom: 10px;
+  overflow: hidden; /* مش هيفيد هنا بس مفيش مشكلة تسيبه */
+}
+
+header .navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -50%; /* بدل -138px */
+  width: 0%;
+  height: 5px;
+  background-color: red;
+  transition: 0.5s ease-in-out;
+}
+header .navbar.active li:first-child a::after,
+header .navbar a:hover::after {
+  left: 0;
+  width: 100%; /* دلوقتي الخط هيتحرك من بره لداخل العنصر */
+}
+
